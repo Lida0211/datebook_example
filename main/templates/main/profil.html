@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная страница ежедневника</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff3e0; /* Светло-оранжевый фон */
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .header {
+            font-size: 3em;
+            font-weight: bold;
+            background: linear-gradient(45deg, #e65100, #ff9800); /* Градиент для текста */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Тень для текста */
+            margin-bottom: 40px;
+        }
+        .navigation {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            width: 80%;
+            max-width: 600px;
+        }
+        .navigation button {
+            padding: 20px;
+            background-color: #ffcc80; /* Светло-оранжевый фон кнопок */
+            border: none;
+            border-radius: 15px;
+            color: #333;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .navigation button:hover {
+            background-color: #ffb74d; /* Оранжевый фон при наведении */
+            transform: scale(1.05); /* Увеличение кнопки при наведении */
+        }
+        .navigation button:active {
+            transform: scale(0.95); /* Уменьшение кнопки при нажатии */
+        }
+    </style>
+</head>
+<body>
+    <div class="header">ПРОФИЛЬ</div>
+    <div class="navigation">
+        <button onclick="location.href='http://127.0.0.1:8000/accounts/main/'">ГЛАВНАЯ СТРАНИЦА</button>
+        <button onclick="location.href='http://127.0.0.1:8000/record/'"> МОИ ЗАПИСИ</button>
+        <button onclick="location.href='http://127.0.0.1:8000/accounts/main/calendar/'">КАЛЕНДАРЬ</button>
+        <button onclick="location.href='music.html'">МОЯ МУЗЫКА</button>
+        <button onclick="location.href='books.html'">МОИ КНИГИ</button>
+        <button onclick="location.href='images.html'">МОИ КАРТИНКИ</button>
+    </div>
+</body>
+</html>

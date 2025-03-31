@@ -1,0 +1,140 @@
+.butggton {
+    text-decoration: none;
+    color: #000000;
+    background: #ed5205;
+    padding:5px 8px;
+    border: 1px solid #bdc3c7;
+    border-radius: 3px;
+    margin: 20px auto;
+    text-align:center;
+    display:block;
+    width:120px;
+    position: relative;
+    height:45px;
+    font: 400 16px verdana;
+   }
+  
+  a.butggton:after {
+      content: "";
+      background: linear-gradient(to right, #ed5205 10%, #ce7c3d 10%, #e8af45 20%, #df6141 20%, #fd4705 30%, #e67e22 30%, #fda95e 40%, #c0392b 40%, #c0392b 50%, #2ecc71 50%, #2ecc71 60%, #3498db 60%, #3498db 70%, #8e44ad 70%, #8e44ad 80%, #e67e22 80%, #e67e22 90%, #c0392b 90%);
+      background-size: 200% 100%;
+      display: inline-block;
+      width: 100%;
+      height: 4px;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+    }
+  a.butggton:hover {
+      color: #34495e;
+  }
+  
+  a.buttonns {
+    padding: 3px 14px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.701961) 0px 5px 12px;
+     -webkit-transform-origin: 50% 1px;
+     -webkit-transition: all 0.15s ease-in-out;
+    background:  #161616;
+    border-color: rgba(255, 255, 255, 0.027451) #FF8C39 rgba(255, 255, 255, 0.027451) rgba(255, 255, 255, 0.027451);
+     border-style: solid;
+    border-width: 1px 10px 1px 1px;
+    box-shadow: rgba(0, 0, 0, 0.701961) 0px 5px 12px;
+    color: #f44d0b;
+    display:block;
+    width:110px;
+    font-family: Open Sans, Sans-serif;
+    border-radius: 5px;
+     font-size: 16px;
+    letter-spacing: 4px;
+    text-shadow: rgb(0, 0, 0) 0px 1px 1px;
+    line-height: 50px;
+    position: relative;
+   margin: 20px auto;
+    text-align: center;
+    text-decoration:none;
+  }
+  a.buttonns:hover {
+    cursor: pointer;
+    opacity: 0.9;
+    border-width: 1px 40px 1px 1px;
+  }
+  a.buttonns:active {
+  -webkit-box-shadow:inset rgba(0, 0, 0, 0.701961) 0px 7px 12px,rgba(0, 0, 0, 0.701961) 0px 2px 12px  ;
+  text-shadow: rgb(0, 0, 0) 0px -2px 1px;
+  margin-top: 1px;
+  }
+  
+  .menu-wrapper {
+      display:flex;
+      flex-direction:row;
+      margin-right: 100 px;
+      border: #e8af45;
+      text-align:justify; 
+  }
+
+  .body-calendar {
+    font-family: Arial, sans-serif;
+    background-color: rgb(244, 225, 169); /* Светло-оранжевый фон */
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    
+}
+.calendar {
+    background-color: #ffe0b2; /* Оранжевый фон календаря */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    width: 80vw;
+    margin-left: calc(-50vw + 50%);
+}
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.calendar-header h2 {
+    margin: 0;
+    color: #e65100; /* Темно-оранжевый цвет текста */
+}
+.calendar-header button {
+    background-color: #ffcc80; /* Светло-оранжевый фон кнопок */
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.calendar-header button:hover {
+    background-color: #ffb74d; /* Оранжевый фон при наведении */
+}
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+.calendar-day {
+    padding: 10px;
+    background-color: #ffcc80; /* Светло-оранжевый фон дней */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.calendar-day:hover {
+    background-color: #ffb74d; /* Оранжевый фон при наведении */
+}
+.calendar-day.empty {
+    background-color: transparent;
+    cursor: default;
+}
+.calendar-day.today {
+    background-color: #fb8c00; /* Ярко-оранжевый фон для текущего дня */
+    color: white;
+}
+  

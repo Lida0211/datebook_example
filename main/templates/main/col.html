@@ -1,0 +1,96 @@
+
+{% extends "shablon.html"%}
+
+{% load static %}
+{% block content %}
+
+
+<div style = "background-color:rgb(244, 225, 169)">
+    <div class ='body-calendar'>
+        <div class="calendar">
+            <div class="calendar-header">
+                <button id="prev-month">&lt;</button>
+                <h2 id="month-year"></h2>
+                <button id="next-month">&gt;</button>
+            </div>
+            <div class="calendar-grid" id="calendar-grid">
+                <!-- Дни недели -->
+                <div class="calendar-day">Пн</div>
+                <div class="calendar-day">Вт</div>
+                <div class="calendar-day">Ср</div>
+                <div class="calendar-day">Чт</div>
+                <div class="calendar-day">Пт</div>
+                <div class="calendar-day">Сб</div>
+                <div class="calendar-day">Вс</div>
+            </div>
+        </div>
+
+        <script>
+            let currentDate = new Date(); // Текущая дата
+
+            // Функция для обновления календаря
+            function updateCalendar() {
+                const year = currentDate.getFullYear();
+                const month = currentDate.getMonth();
+
+                // Установка заголовка (месяц и год)
+                const monthNames = [
+                    "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь",
+                    "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"
+                ];
+                document.getElementById("month-year").textContent = `${monthNames[month]} ${year}`;
+
+                // Очистка календаря (кроме дней недели)
+                const calendarGrid = document.getElementById("calendar-grid");
+                while (calendarGrid.children.length > 7) {
+                    calendarGrid.removeChild(calendarGrid.lastChild);
+                }
+
+                // Определение первого дня месяца и количества дней в месяце
+                const firstDay = new Date(year, month, 1).getDay() || 7; // Пн = 1, Вс = 7
+                const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+                // Добавление пустых ячеек для начала месяца
+                for (let i = 1; i < firstDay; i++) {
+                    const emptyDay = document.createElement("div");
+                    emptyDay.classList.add("calendar-day", "empty");
+                    calendarGrid.appendChild(emptyDay);
+                }
+
+                // Добавление дней месяца
+                for (let day = 1; day <= daysInMonth; day++) {
+                    const dayElement = document.createElement("div");
+                    dayElement.classList.add("calendar-day");
+                    dayElement.textContent = day;
+
+                    // Выделение текущего дня, если это текущий месяц и год
+                    if (
+                        day === new Date().getDate() &&
+                        month === new Date().getMonth() &&
+                        year === new Date().getFullYear()
+                    ) {
+                        dayElement.classList.add("today");
+                    }
+
+                    calendarGrid.appendChild(dayElement);
+                }
+            }
+
+            // Переход к предыдущему месяцу
+            document.getElementById("prev-month").addEventListener("click", () => {
+                currentDate.setMonth(currentDate.getMonth() - 1);
+                updateCalendar();
+            });
+
+            // Переход к следующему месяцу
+            document.getElementById("next-month").addEventListener("click", () => {
+                currentDate.setMonth(currentDate.getMonth() + 1);
+                updateCalendar();
+            });
+
+            // Обновление календаря при загрузке страницы
+            updateCalendar();
+        </script>
+    </div>
+</div>
+{% endblock %}

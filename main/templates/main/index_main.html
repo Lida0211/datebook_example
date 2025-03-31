@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добро пожаловать в Ежедневник</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff3e0; /* Светло-оранжевый фон */
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .header {
+            font-size: 3.5em;
+            font-weight: bold;
+            background: linear-gradient(45deg, #e65100, #ff9800); /* Градиент для текста */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Тень для текста */
+            margin-bottom: 20px;
+            }
+        .welcome-container {
+            background-color: #ffe0b2; /* Оранжевый фон контейнера */
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 400px;
+            text-align: center;
+        }
+        .welcome-container p {
+            margin: 0;
+            color: #bf360c; /* Оранжевый цвет текста */
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        .welcome-container button {
+            padding: 12px 30px;
+            background-color: #ffcc80; /* Светло-оранжевый фон кнопки */
+            border: none;
+            border-radius: 25px;
+            color: #333;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .welcome-container button:hover {
+            background-color: #ffb74d; /* Оранжевый фон при наведении */
+            transform: scale(1.05); /* Увеличение кнопки при наведении */
+        }
+        .welcome-container button:active {
+            transform: scale(0.95); /* Уменьшение кнопки при нажатии */
+        }
+    </style>
+</head>
+<body>
+    <div class="header" >ЕЖЕДНЕВНИК</div>
+    <div class="welcome-container">
+        <p>
+            Ваш ежедневник готов помочь вам организовать день. 
+            Добавляйте задачи, отслеживайте прогресс и достигайте своих целей 
+            с легкостью и удовольствием.
+        </p>
+        <button onclick="location.href='http://127.0.0.1:8000/accounts/main/profil/'">Начать</button>
+    </div>
+</body>
+</html>

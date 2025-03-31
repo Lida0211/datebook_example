@@ -1,0 +1,52 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {% block title%} Ежедневник {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    
+
+</head>
+<body style = "background-color:rgb(244, 225, 169)">
+
+    
+
+        {% block navbar %}
+        
+        <div>
+            <a href="http://127.0.0.1:8000/accounts/" class="menu-wrapper">Выйти</a>
+        </div>
+
+        <div class="menu-wrapper">
+            <div><a href="http://127.0.0.1:8000/accounts/main/" class="butggton">Главная страница</a></div>
+            <div><a href="http://127.0.0.1:8000/accounts/main/profil/" class="buttonns">Профиль</a></div>
+            <div><a href="http://127.0.0.1:8000/record/" class="buttonns">Записи</a></div>
+            <div><a href="http://127.0.0.1:8000/accounts/main/calendar/" class="buttonns">Календарь</a></div>
+            <div><a href="http://127.0.0.1:8000/music/" class="buttonns">Музыка</a></div>
+            <div><a href="http://127.0.0.1:8000/books/" class="buttonns">Книги</a></div>
+            <div><a href="http://127.0.0.1:8000/picture/" class="buttonns">Картинки</a></div>
+        </div>
+        
+        {% endblock %}
+
+        
+
+    {% block content %}
+    
+    {% endblock %}
+
+    
+        {% block contacts %}
+
+        
+            <div>
+                <h1 style = "text-align:center;background-color:rgb(238, 149, 32)">Какая-нибудь цитата!</h1>
+            </div>
+        {% endblock %}  
+    
+
+</body>
+</html>
