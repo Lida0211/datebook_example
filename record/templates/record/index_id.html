@@ -10,30 +10,28 @@
     
     <ul>
     
-        {% for record in records %}
+        
     <div class="menu-wrapper">    
-        <br/><br/>  
-        <a href="{% url 'record' record_id=record.id %}" class="btn"><span> Перейти к записи </span> </a>            
+        <br/><br/>              
             {{ record.data }} <br/>
-            {{ record.weekday }}   <br/>
-            
+            {{ record.weekday }}   <br/><br/>
             
 
             <div style="margin-left: 80px">
             <br/><br/><h3 style="color: brown; text-align: center;"> {{'Распорядок дня : '}} </h3> <br/>    
-            {% for day in record.days.all %}
+            
                  
                     
                     {{ day.time }} {{"--"}}
                     {{ day.activity }} <br/>
                     {{"Примечание(продолжительность) : "}}{{ day.comment }}<br/><br/> 
                 
-            {% endfor %}
+            
             </div>
             
             <div  style="margin-left: 80px">
             <br/><br/><h3 style="color: brown; text-align: center;">{{"Меню:"}} </h3><br/>
-                {% for menu_item in record.menu.all %}
+                
                     
                         
                         {{"Завтрак : "}}{{ menu_item.breakfast }} <br/>
@@ -42,15 +40,16 @@
                         {{"Перекус : "}}{{ menu_item.snack }} <br/>
                         {{"Комментарий к меню : "}}{{ menu_item.comment_menu }}<br/><br/> 
                     
-                {% endfor %} <br/>
+                 <br/>
             </div>
-                    
+                <div style="margin-left: 80px">
+                    <a href="{% url 'records' %}" class="btn"><span>Вернуться ко всем записям </span> </a>
+                </div> 
+
             <br/><br/>
         </div>
-            <div style = "text-align: center; background-color:rgb(238, 149, 32)">
-                <h7 >****</h7>
-            </div>       
-        {% endfor %}<br/><br/>
+                  
+        <br/><br/>
     
     </ul>
 {% endblock %}
