@@ -12,26 +12,28 @@
     
         
     <div class="menu-wrapper">    
-        <br/><br/>              
+        <br/><br/>  
+          
             {{ record.data }} <br/>
-            {{ record.weekday }}   <br/><br/>
+            {{ record.weekday }}   <br/>
+            
             
 
             <div style="margin-left: 80px">
             <br/><br/><h3 style="color: brown; text-align: center;"> {{'Распорядок дня : '}} </h3> <br/>    
-            
+            {% for day in record.days.all %}
                  
                     
                     {{ day.time }} {{"--"}}
                     {{ day.activity }} <br/>
                     {{"Примечание(продолжительность) : "}}{{ day.comment }}<br/><br/> 
                 
-            
+            {% endfor %}
             </div>
             
             <div  style="margin-left: 80px">
             <br/><br/><h3 style="color: brown; text-align: center;">{{"Меню:"}} </h3><br/>
-                
+                {% for menu_item in record.menu.all %}
                     
                         
                         {{"Завтрак : "}}{{ menu_item.breakfast }} <br/>
@@ -40,15 +42,15 @@
                         {{"Перекус : "}}{{ menu_item.snack }} <br/>
                         {{"Комментарий к меню : "}}{{ menu_item.comment_menu }}<br/><br/> 
                     
-                 <br/>
+                {% endfor %} <br/>
             </div>
-                <div style="margin-left: 80px">
-                    <a href="{% url 'records' %}" class="btn"><span>Вернуться ко всем записям </span> </a>
-                </div> 
-
+                        <div style="margin-left: 80px">
+                            <a href="{% url 'records' %}" class="btn"><span>Вернуться ко всем записям </span> </a></b>
+                            <a href="{% url 'edit-record' record_id=record.id %}" class="btn"><span>Изменить запись </span> </a>
+                        </div>
             <br/><br/>
         </div>
-                  
+                 
         <br/><br/>
     
     </ul>

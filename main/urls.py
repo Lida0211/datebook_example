@@ -4,8 +4,8 @@ from main.views import index_main, otobr, col, profil
 
 
 urlpatterns = [
-    path('', otobr),
+    path('', otobr, name = "login"),
     path('main/', index_main),
     path('main/calendar/', col),
-    path('main/profil/', profil),
+    path('main/profil/', profil, name = "profil"),
 ]

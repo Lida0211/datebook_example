@@ -5,9 +5,9 @@
 {% block content %}
 
     <h1 style = "text-align:center;background-color:rgb(238, 149, 32)">Список записей</h1>
-    
-    
-    
+    <div class="container-record">
+        <a href="{% url 'create-record' %}" class="btn"><span> Cоздать запись </span> </a>
+    </div>
     <ul>
     
         {% for record in records %}
@@ -54,3 +54,9 @@
     
     </ul>
 {% endblock %}
+
+
+
+
+
+ 

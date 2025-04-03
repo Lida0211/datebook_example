@@ -1,9 +1,12 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Добро пожаловать в Ежедневник</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -67,7 +70,13 @@
             Добавляйте задачи, отслеживайте прогресс и достигайте своих целей 
             с легкостью и удовольствием.
         </p>
-        <button onclick="location.href='http://127.0.0.1:8000/accounts/main/profil/'">Начать</button>
+        
+        <a href="{% if user.is_authenticated %}
+            {% url 'profil' %}
+        {% else %}
+            {% url 'login' %}{% endif %}"  class="buttonns">
+            Начать
+        </a>
     </div>
 </body>
 </html>
