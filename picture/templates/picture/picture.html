@@ -1,17 +1,25 @@
 {% extends "shablon.html"%}
 
 {% load static %}
+
 {% block content %}
 
-
-
-
-
-
-   
     
-    <h>Здесь будут выведены картинки </h>
-
-  
-
+    <h>Здесь будут выведены картинки </h><br/><br/>
+<div style="display:flex; flex-direction:row; border: #e8af45; text-align:justify; ">
+    
+        {% for picture in pictures %}
+        <div style="margin: 0 40px 40px 40px">              
+            {{ picture.name }} <br/>
+            {{ picture.data }}   <br/>
+            {% if picture.image %}
+                <img src="{{ picture.image.url }}"
+                width="150"        
+                height="auto">
+            {% endif %}<br/><br/>
+            {{ picture.description }}   <br/>
+        </div> 
+        {% endfor %}
+    
+</div>
 {% endblock %}
