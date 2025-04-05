@@ -1,11 +1,17 @@
 {% extends 'shablon_record.html' %}
 
+
 {% block content %}
     <div class="container-record">
         <h2 class="retro-title">Подтверждение удаления</h2>
     </div>
     <div class="container-record">
-        <p class="retro-title">Вы уверены, что хотите удалить запись от {{ record.data }} ({{ record.weekday }})?</p>
+        <p >Вы уверены, что хотите удалить запись от {{day.record}}  в {{ day.time }}?</p></b></b>
+        
+    </div>
+    <div class="container-record">
+        
+        <p >Действие: {{ day.activity }}</p>
     </div>
     <div class="container-record">
         <form method="post">
@@ -15,6 +21,6 @@
         </form>
     </div>
     <div class="container-record">
-        <a href="{% url 'records' %}">Отмена</a>
+        <a href="{% url 'record' record_id=record_id %}">Отмена</a>
     </div>
 {% endblock %}

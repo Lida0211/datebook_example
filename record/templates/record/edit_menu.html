@@ -1,0 +1,20 @@
+{% extends 'shablon_record.html' %}
+
+{% block content %}
+<div class="container-record">
+    <h2 class="retro-title">Редактирование меню для записи от {{ record.data }}</h2>
+</div>
+
+<div class="container-record">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+    
+        <button type="submit" >Сохранить изменения</button>
+        
+    </form>
+</div>
+<div class="container-record">
+    <a href="{% url 'record' record_id=record.id %}" >Отмена</a>
+</div>
+{% endblock %}

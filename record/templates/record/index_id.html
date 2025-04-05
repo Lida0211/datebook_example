@@ -1,34 +1,38 @@
 
-{% extends "shablon.html"%}
-
-
+{% extends "shablon_record.html"%}
+{% load static %}
 {% block content %}
 
-    <h1 style = "text-align:center;background-color:rgb(238, 149, 32)">Список записей</h1>
-    
-    
-    
+   
+<h1 style = "text-align:center;background-color:rgb(238, 149, 32)">Распорядок дня</h1>
     <ul>
-    
-        
+            
     <div class="menu-wrapper">    
         <br/><br/>  
           
             {{ record.data }} <br/>
             {{ record.weekday }}   <br/>
             
-            
-
             <div style="margin-left: 80px">
             <br/><br/><h3 style="color: brown; text-align: center;"> {{'Распорядок дня : '}} </h3> <br/>    
             {% for day in record.days.all %}
                  
                     
                     {{ day.time }} {{"--"}}
-                    {{ day.activity }} <br/>
-                    {{"Примечание(продолжительность) : "}}{{ day.comment }}<br/><br/> 
-                
+                    {{ day.activity }} 
+                     ( {{ day.comment }} )<br/> 
+                    <a href="{% url 'edit-record' day_id=day.id %}" class="tooltip-btn-r" title="Редактировать запись"><span>✏️  </span> </a>  
+                    <a href="{% url 'delete-day' day_id=day.id %}" class="tooltip-btn-r" title="Удалить">🗑️</a> <br/><br/>
             {% endfor %}
+            <a href="http://127.0.0.1:8000/record/createday/" class="tooltip-btn">
+                <img src="{% static 'img/plus.webp' %}" 
+                alt="Пример" 
+                width="15"        
+                height="auto" >
+                <span class="tooltip-text">Добавить новую запись</span>
+              </a>
+                        
+
             </div>
             
             <div  style="margin-left: 80px">
@@ -40,13 +44,23 @@
                         {{"Обед : "}}{{ menu_item.lunch }} <br/>
                         {{"Ужин : "}}{{ menu_item.dinner }} <br/>
                         {{"Перекус : "}}{{ menu_item.snack }} <br/>
-                        {{"Комментарий к меню : "}}{{ menu_item.comment_menu }}<br/><br/> 
+                        {{"Комментарий к меню : "}}{{ menu_item.comment_menu }}<br/><br/>
+                        <a href="{% url 'edit-menu' record_id=record.id%}" class="tooltip-btn-r" title="Редактировать меню"><span>✏️  </span> </a>  
+                         
                     
                 {% endfor %} <br/>
+                <a href="{% url 'create-menu'  %}" class="tooltip-btn">
+                    <img src="{% static 'img/plus.webp' %}" 
+                    alt="Пример" 
+                    width="15"        
+                    height="auto" >
+                    <span class="tooltip-text">Добавить меню</span>
+                  </a>
+
             </div>
                         <div style="margin-left: 80px">
-                            <a href="{% url 'records' %}" class="btn"><span>Вернуться ко всем записям </span> </a></b>
-                            <a href="{% url 'edit-record' record_id=record.id %}" class="btn"><span>Изменить запись </span> </a>
+                            <br/><br/> <a href="{% url 'records' %}" class="btn"><span>Вернуться ко всем записям </span> </a></b>
+                            
                         </div>
             <br/><br/>
         </div>

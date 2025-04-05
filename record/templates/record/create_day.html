@@ -4,12 +4,12 @@
 {% block content %}
 
 <div class="container-record">
-    <h class="retro-title"> ДОБАВЛЕНИЕ НОВОЙ ДАТЫ В ЕЖЕДНЕВНИК </h></b>
+    <h class="retro-title"> ДОБАВЛЕНИЕ НОВОЙ ЗАПИСИ </h></b>
 
 
 </div>
 <div class="container-record">
-    <form action="/record/create/" method="post">
+    <form action="/record/createday/{{day.id}}" method="post">
         {% csrf_token%}
         {{form}}
 

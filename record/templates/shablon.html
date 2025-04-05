@@ -12,8 +12,6 @@
 </head>
 <body style = "background-color:rgb(244, 225, 169)">
 
-    
-
         {% block navbar %}
         
         <div>
@@ -21,7 +19,10 @@
         </div>
 
         <div class="menu-wrapper">
-            <div><a href="http://127.0.0.1:8000/accounts/main/" class="butggton">Главная страница</a></div>
+            <div><a href="http://127.0.0.1:8000/accounts/main/" class="buttonns">
+                Главная
+                страница
+            </a></div>
             <div><a href="http://127.0.0.1:8000/accounts/main/profil/" class="buttonns">Профиль</a></div>
             <div><a href="http://127.0.0.1:8000/record/" class="buttonns">Записи</a></div>
             <div><a href="http://127.0.0.1:8000/accounts/main/calendar/" class="buttonns">Календарь</a></div>
@@ -31,21 +32,15 @@
         </div>
         
         {% endblock %}
-
-        
-
     {% block content %}
     
     {% endblock %}
 
-    
-        {% block contacts %}
-
-        
-            <div>
-                <h1 style = "text-align:center;background-color:rgb(238, 149, 32)">Какая-нибудь цитата!</h1>
-            </div>
-        {% endblock %}  
+{% block contacts %}
+    <div>
+        <h1 style = "text-align:center;background-color:rgb(238, 149, 32)">Пларинуй свой день правильно!</h1>
+    </div>
+{% endblock %}  
     
 
 </body>

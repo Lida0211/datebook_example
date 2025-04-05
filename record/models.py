@@ -29,7 +29,7 @@ class Day(models.Model):
     time = models.TimeField(null = False, verbose_name = "Время")                         #время
     activity = models.CharField(max_length = 30, null = False, verbose_name = "Действие")      #действие
     comment = models.TextField(blank=True, null = True, verbose_name = "Комментарий")                      #комментарий
-    record = models.ForeignKey(Record, on_delete=models.CASCADE, default=1, related_name="days")
+    record = models.ForeignKey(Record, on_delete=models.CASCADE,verbose_name = "Запись", default=1, related_name="days")
 
 
 
@@ -37,6 +37,7 @@ class Day(models.Model):
         verbose_name_plural = "Распорядок дня"
         verbose_name = "Распорядок дня"
         ordering = ["time"]
+        unique_together = [['time', 'record']]
 
 class Menu(models.Model):
     breakfast = models.CharField(blank=True, max_length = 30, null = True, verbose_name = "Завтрак")      #завтрак
@@ -44,12 +45,19 @@ class Menu(models.Model):
     dinner = models.CharField(blank=True, max_length = 30, null = True, verbose_name = "Ужин")         #ужин
     snack = models.CharField(blank=True, max_length = 30, null = True, verbose_name = "Перекус")          #перекус
     comment_menu = models.TextField(blank=True, null = True, verbose_name = "Примечание")                  #примечания к меню
-    record = models.ForeignKey(Record, on_delete=models.CASCADE, default=1, related_name="menu")
+    record = models.ForeignKey(Record, on_delete=models.CASCADE,verbose_name = "Запись", default=1, related_name="menu")
 
 
     class Meta:
         verbose_name_plural = "Меню"
         verbose_name = "Меню"
+        constraints = [
+            models.UniqueConstraint(
+                fields=['record'],
+                name='unique_menu_per_record',
+                violation_error_message='Меню уже существует для этой записи'
+            )
+        ]
         
 
 

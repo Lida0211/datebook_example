@@ -1,40 +1,36 @@
 
 {% extends "shablon.html"%}
-
-
 {% block content %}
 
     <h1 style = "text-align:center;background-color:rgb(238, 149, 32)">Список записей</h1>
     <div class="container-record">
-        <a href="{% url 'create-record' %}" class="btn"><span> Cоздать запись </span> </a>
+        <a href="{% url 'create-record' %}" class="btn"><span> Cоздать новую дату </span> </a>
     </div>
     <ul>
     
         {% for record in records %}
     <div class="menu-wrapper">    
         <br/><br/>  
-        <a href="{% url 'record' record_id=record.id %}" class="btn"><span> Перейти к записи </span> </a>            
+        <a href="{% url 'record' record_id=record.id %}" class="btn"><span> Перейти к записи </span> </a><br/> <br/> <br/> 
+                   
             {{ record.data }} <br/>
             {{ record.weekday }}   <br/>
-            
-            
+                       
 
             <div style="margin-left: 80px">
             <br/><br/><h3 style="color: brown; text-align: center;"> {{'Распорядок дня : '}} </h3> <br/>    
-            {% for day in record.days.all %}
-                 
+            {% for day in record.days.all %} 
                     
                     {{ day.time }} {{"--"}}
-                    {{ day.activity }} <br/>
-                    {{"Примечание(продолжительность) : "}}{{ day.comment }}<br/><br/> 
+                    {{ day.activity }} 
+                    ( {{ day.comment }} )<br/><br/> 
                 
             {% endfor %}
             </div>
             
             <div  style="margin-left: 80px">
             <br/><br/><h3 style="color: brown; text-align: center;">{{"Меню:"}} </h3><br/>
-                {% for menu_item in record.menu.all %}
-                    
+                {% for menu_item in record.menu.all %}   
                         
                         {{"Завтрак : "}}{{ menu_item.breakfast }} <br/>
                         {{"Обед : "}}{{ menu_item.lunch }} <br/>
@@ -44,12 +40,12 @@
                     
                 {% endfor %} <br/>
             </div>
-                    
+            <a href="{% url 'delete-record' record_id=record.id %}" style="margin: 2cm 0cm 0cm 2cm;" title="Удалить запись из ежедневника">🗑️</a> <br/><br/>            
             <br/><br/>
-        </div>
-            <div style = "text-align: center; background-color:rgb(238, 149, 32)">
-                <h7 >****</h7>
-            </div>       
+        </div><br/><br/>
+<div style = "text-align: center; background-color:rgb(238, 149, 32)">
+    <h7 >****</h7>
+</div>       
         {% endfor %}<br/><br/>
     
     </ul>
