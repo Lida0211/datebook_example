@@ -4,22 +4,39 @@
 
 {% block content %}
 
+<h1 style = "text-align:center;background-color:rgb(238, 149, 32)">Мои картинки</h1>
     
-    <h>Здесь будут выведены картинки </h><br/><br/>
-<div style="display:flex; flex-direction:row; border: #e8af45; text-align:justify; ">
-    
+<div style="display: flex;
+justify-content: center; /* Горизонтальное центрирование */
+align-items: center;     /* Вертикальное центрирование */
+min-height: 100vh;       /* На всю высоту экрана */
+margin:0 0 0 3cm;
+padding: 20px;">
+    <div class="style-r">
         {% for picture in pictures %}
-        <div style="margin: 0 40px 40px 40px">              
-            {{ picture.name }} <br/>
-            {{ picture.data }}   <br/>
-            {% if picture.image %}
-                <img src="{{ picture.image.url }}"
-                width="150"        
-                height="auto">
-            {% endif %}<br/><br/>
-            {{ picture.description }}   <br/>
-        </div> 
+            <div class="style-rr">
+                {{ picture.name }}  <br/>
+                {{ picture.data }}   <br/>
+                {% if picture.image %}
+                    <img src="{{ picture.image.url }}" width="150" height="auto">
+                {% endif %}<br/><br/>
+                {{ picture.description }}   <br/>
+                <a href="{% url 'edit-picture' picture_id=picture.id %}" class="tooltip-btn-r" title="Редактировать картинку"><span>✏️  </span> </a>
+                <a href="{% url 'delete-picture' picture_id=picture.id %}" class="tooltip-btn-r" title="Удалить">🗑️</a> <br/><br/>
+            </div>
+            
         {% endfor %}
-    
+        
+    </div>
+</div>
+<div style="display: flex; justify-content: right; margin: 0 3cm 0 0;">
+    <a href="http://127.0.0.1:8000/picture/create/" class="tooltip-btn-p">
+        <br/><br/><br/><br/><br/><br/><img src="{% static 'img/plus.webp' %}" 
+        alt="Пример" 
+        width="25"        
+        height="auto" >
+        <span class="tooltip-text-p">Добавить новую картинку</span>
+      </a>
 </div>
 {% endblock %}
+

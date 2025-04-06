@@ -229,6 +229,7 @@
   padding: 0px 0px;
   margin: 0cm 0cm 0cm 3cm;
 }
+
 .tooltip-text-r {
   visibility: hidden;
   width: 80px;
@@ -245,6 +246,7 @@
   opacity: 0;
   transition: opacity 0.3s;
 }
+
 .tooltip-btn-r:hover .tooltip-text-r {
   visibility: visible;
   opacity: 1;
@@ -268,4 +270,55 @@
 .tooltip-btn:hover .tooltip-text {
   visibility: visible;
   opacity: 1;
+}
+.style-r {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 20px;
+  text-align: justify;
+}
+.style-rr {
+  margin: 20px;
+  padding: 20px;
+  border: 3px solid #FFA500;
+  background-color: #f6d093;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(255, 165, 0, 0.2);
+  width: calc(15% - 40px); 
+}
+.tooltip-btn-p {
+  position:sticky;
+  padding: 0px 0px;
+  margin: 0cm 0cm 0cm 0cm;
+}
+.tooltip-text-p {
+  visibility: hidden;
+  width: 80px;
+  background: #333;
+  color: #e4af45;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 50%; 
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.tooltip-btn-p:hover .tooltip-text-p {
+  visibility: visible;
+  opacity: 1;
+}
+
+.confirmation-container {
+  max-width: 600px;
+  margin: 2rem auto;
+}
+.card {
+  margin-top: 1rem;
+  border: 1px solid #ffebee;
+  border-radius: 8px;
 }
