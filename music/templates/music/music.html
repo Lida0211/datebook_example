@@ -5,14 +5,55 @@
 {% block content %}
 
 
+<h1 style = "text-align:center;background-color:rgb(238, 149, 32)">Моя музыка</h1><br/>
 
-
-
-
-   
     
-    <h>Здесь будут выведены музыка </h>
+<div style="display: flex;
+            flex-wrap: wrap; /* Перенос на новую строку */
+            justify-content: center; /* Центрирование по горизонтали */
+            align-items: flex-start; /* Выравнивание по верхнему краю */
+            margin-top: 1cm; /* Отступ сверху 2 см */
+            padding: 20px;
+            gap: 20px;"> <!-- Отступ между блоками -->
+    
+    {% for item_music in music %}
+        <div style="width: calc(33.33% - 20px); /* Ширина для 3 блоков в ряд с учётом gap */
+                    min-width: 200px; /* Минимальная ширина */
+                    border: 1px solid #f7924f;
+                    padding: 15px;
+                    box-sizing: border-box; /* Учитываем padding в ширине */
+                    border-radius: 8px;
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <div style="font-weight: bold;">
+                {{ item_music.title }} --- {{ item_music.artist }}
+            </div>
+            <br/>
+            
+            <audio controls style="width: 100%;">
+                <source src="{{ item_music.audio_file.url }}" type="audio/mpeg">
+                Ваш браузер не поддерживает аудиоэлемент.
+            </audio>
+            <br/><br/>
+            
+            <div style="font-size: 0.9em; color: #666;">
+                {{ item_music.upload_date|date:"d.m.Y H:i" }}
+            </div>
+            <a href="{% url 'edit-music' item_music.id %}" class="tooltip-btn-r" title="Редактировать картинку"><span>✏️  </span> </a>
+            <a href="{% url 'delete-music' item_music.id %}" class="tooltip-btn-r" title="Удалить">🗑️</a> <br/><br/>
+        </div>
+        
+    {% endfor %}
+    
+</div>
+<div style="display: flex; justify-content: right; margin: 0 3cm 0 0;">
+    <a href="http://127.0.0.1:8000/music/create/" class="tooltip-btn-p">
+        <br/><br/><br/><br/><br/><br/><img src="{% static 'img/plus.webp' %}" 
+        alt="Пример" 
+        width="25"        
+        height="auto" >
+        <span class="tooltip-text-p">Добавить новый трек</span>
+      </a>
+</div>
 
-  
 
 {% endblock %}

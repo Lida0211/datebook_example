@@ -1,0 +1,15 @@
+{% extends 'shablon_record.html' %}
+
+{% block content %}
+<div style="max-width: 600px; margin: 2cm auto; padding: 20px;">
+    <h2>Редактировать трек: {{ music.title }}</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        {{ form.as_p }}  <!-- Или кастомный рендеринг полей как в create_music.html -->
+        
+        <button type="submit">Сохранить изменения</button>
+        <a href="{% url 'music' %}">Отмена</a>
+    </form>
+</div>
+{% endblock %}
