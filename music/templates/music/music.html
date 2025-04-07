@@ -38,7 +38,7 @@
             <div style="font-size: 0.9em; color: #666;">
                 {{ item_music.upload_date|date:"d.m.Y H:i" }}
             </div>
-            <a href="{% url 'edit-music' item_music.id %}" class="tooltip-btn-r" title="Редактировать картинку"><span>✏️  </span> </a>
+            <a href="{% url 'edit-music' item_music.id %}" class="tooltip-btn-r" title="Редактировать"><span>✏️  </span> </a>
             <a href="{% url 'delete-music' item_music.id %}" class="tooltip-btn-r" title="Удалить">🗑️</a> <br/><br/>
         </div>
         
