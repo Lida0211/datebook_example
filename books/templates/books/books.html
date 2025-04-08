@@ -5,7 +5,26 @@
 {% block content %}
 
     
-        <h>Здесь будут выведены книги </h>
+<h1 style = "text-align:center;background-color:rgb(238, 149, 32)">Мои книги для прочтения</h1><br/>
 
 
+{% for book in books %}
+        <div style="border: 2px solid orange; padding: 1cm; margin: 1cm;">
+                {{book.name}}---
+                {{book.author}}<br/>
+                Описание: {{book.description}}<br/>
+                {{book.upload_date}}
+                       
+                <a href="{% url 'delete-book' book.id %}" class="tooltip-btn-r" title="Удалить">🗑️</a> <br/><br/>
+        </div>
+{% endfor %}
+<div style="display: flex; justify-content: right; margin: 0 3cm 0 0;">
+        <a href="http://127.0.0.1:8000/books/create/" class="tooltip-btn-p">
+            <br/><br/><br/><br/><br/><br/><img src="{% static 'img/plus.webp' %}" 
+            alt="Пример" 
+            width="25"        
+            height="auto" >
+            <span class="tooltip-text-p">Добавить новую книгу</span>
+          </a>
+</div>
 {% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'shablon_record.html' %}
+
+{% block content %}
+<div style="max-width: 600px; margin: 20px auto; padding: 20px; border: 2px solid orange; border-radius: 5px;">
+    <h2 style="text-align: center; color: orange;">Добавить новую книгу</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div style="margin-bottom: 15px;">
+            <label style="display: block; margin-bottom: 5px; font-weight: bold;">{{ form.name.label }}</label>
+            {{ form.name }}
+        </div>
+        <div style="margin-bottom: 15px;">
+            <label style="display: block; margin-bottom: 5px; font-weight: bold;">{{ form.author.label }}</label>
+            {{ form.author }}
+        </div>
+        <div style="margin-bottom: 15px;">
+            <label style="display: block; margin-bottom: 5px; font-weight: bold;">{{ form.description.label }}</label>
+            {{ form.description }}
+        </div>
+        <button type="submit" style="background-color: orange; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
+            Сохранить книгу
+        </button>
+        <div class="container-record">
+            <a href="{% url 'books' %}" >Отмена</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

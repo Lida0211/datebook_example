@@ -1,0 +1,113 @@
+{% extends "shablon_record.html" %}
+
+{% block content %}
+<div class="edit-profile-container" style="background-color: rgb(244, 225, 169); min-height: 100vh; padding: 30px 0;">
+    <div class="edit-profile-header" style="text-align: center; margin-bottom: 30px;">
+        <h1 style="color: #E67E22;">Редактирование профиля</h1>
+    </div>
+
+    <div class="edit-profile-form" style="max-width: 600px; margin: 0 auto; background: white; border-radius: 10px; box-shadow: 0 4px 8px rgba(230, 126, 34, 0.1); padding: 30px;">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            <!-- Фото профиля -->
+            <div class="form-group" style="margin-bottom: 20px; text-align: center;">
+                <label style="display: block; margin-bottom: 8px; color: #D35400; font-weight: bold;">
+                    {{ form.foto.label }}
+                </label>
+                {% if form.instance.foto %}
+                    <img src="{{ form.instance.foto.url }}" alt="Текущее фото" style="width: 150px; height: 150px; object-fit: cover; border-radius: 50%; border: 3px solid #FAD7A0; margin-bottom: 15px;">
+                {% endif %}
+                {{ form.foto }}
+            </div>
+            
+            <!-- Основные поля -->
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label style="display: block; margin-bottom: 5px; color: #D35400;">
+                    {{ form.surname.label }}
+                </label>
+                {{ form.surname }}
+            </div>
+            
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label style="display: block; margin-bottom: 5px; color: #D35400;">
+                    {{ form.name.label }}
+                </label>
+                {{ form.name }}
+            </div>
+            
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label style="display: block; margin-bottom: 5px; color: #D35400;">
+                    {{ form.patronymic.label }}
+                </label>
+                {{ form.patronymic }}
+            </div>
+            
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label style="display: block; margin-bottom: 5px; color: #D35400;">
+                    {{ form.phone.label }}
+                </label>
+                {{ form.phone }}
+                <small style="color: #999; display: block; margin-top: 5px;">{{ form.phone.help_text }}</small>
+            </div>
+            
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label style="display: block; margin-bottom: 5px; color: #D35400;">
+                    {{ form.email.label }}
+                </label>
+                {{ form.email }}
+            </div>
+            
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label style="display: block; margin-bottom: 5px; color: #D35400;">
+                    {{ form.address.label }}
+                </label>
+                {{ form.address }}
+            </div>
+            
+            <div class="form-group" style="margin-bottom: 25px;">
+                <label style="display: block; margin-bottom: 5px; color: #D35400;">
+                    {{ form.hobby.label }}
+                </label>
+                {{ form.hobby }}
+            </div>
+            
+            <div class="form-actions" style="text-align: center;">
+                <button type="submit" style="background-color: #E67E22; color: white; border: none; padding: 10px 25px; border-radius: 5px; cursor: pointer; font-size: 16px;">
+                    Сохранить изменения
+                </button>
+                <a href="{% url 'profil' %}" style="display: inline-block; margin-left: 15px; padding: 10px 25px; color: #E67E22; border: 1px solid #E67E22; border-radius: 5px; text-decoration: none;">
+                    Отмена
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+    .form-control {
+        width: 100%;
+        padding: 8px 12px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    
+    .form-control:focus {
+        border-color: #E67E22;
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(230, 126, 34, 0.2);
+    }
+    
+    textarea.form-control {
+        min-height: 100px;
+    }
+    
+    @media (max-width: 768px) {
+        .edit-profile-form {
+            padding: 20px;
+            margin: 0 15px;
+        }
+    }
+</style>
+{% endblock %}

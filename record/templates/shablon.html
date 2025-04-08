@@ -14,9 +14,23 @@
 
         {% block navbar %}
         
-        <div>
-            <a href="http://127.0.0.1:8000/accounts/" class="menu-wrapper">Выйти</a>
+        
+        <div style="text-align: right; /* или float: right; для родительского элемента */">
+            <a href="http://127.0.0.1:8000/accounts/" 
+                style="display: inline-block; 
+                        padding: 10px 20px; 
+                        background-color: #FAD7A0; 
+                        color: #D35400; 
+                        border: 1px solid #E67E22; 
+                        border-radius: 5px; 
+                        text-decoration: none; 
+                        font-weight: bold;
+                        transition: all 0.3s ease;">
+                Выйти
+            </a>
         </div>
+            
+        
 
         <div class="menu-wrapper">
             <div><a href="http://127.0.0.1:8000/accounts/main/" class="buttonns">
