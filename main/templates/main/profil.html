@@ -9,18 +9,18 @@
     </div>
 
     <div class="profile-content" style="max-width: 800px; margin: 0 auto; background: white; border-radius: 10px; box-shadow: 0 4px 8px rgba(230, 126, 34, 0.1); padding: 30px;">
-        {% for data in profil %}
+        
         <div class="profile-section" style="display: flex; flex-wrap: wrap; gap: 30px;">
             
             <div class="profile-photo" style="flex: 0 0 200px;">
-                <img src="{{ data.foto.url }}" alt="Фото профиля" style="width: 100%; border-radius: 50%; border: 3px solid #FAD7A0;">
+                <img src="{{ profil.foto.url }}" alt="Фото профиля" style="width: 100%; border-radius: 50%; border: 3px solid #FAD7A0;">
             </div>
 
             
             <div class="profile-info" style="flex: 1; min-width: 300px;">
                 <div class="profile-name" style="margin-bottom: 20px;">
                     <h2 style="color: #D35400; margin: 0;">
-                        {{ data.surname }} {{ data.name }} {{ data.patronymic }}
+                        {{ profil.surname }} {{ profil.name }} {{ profil.patronymic }}
                     </h2>
                 </div>
 
@@ -29,33 +29,33 @@
                         <span style="width: 30px; color: #E67E22;">
                             <i class="fas fa-phone"></i>
                         </span>
-                        <span>{{ data.phone|default:"Не указан" }}</span>
+                        <span>{{ profil.phone|default:"Не указан" }}</span>
                     </div>
                     
                     <div style="display: flex; align-items: center; margin-bottom: 10px;">
                         <span style="width: 30px; color: #E67E22;">
                             <i class="fas fa-envelope"></i>
                         </span>
-                        <span>{{ data.email|default:"Не указан" }}</span>
+                        <span>{{ profil.email|default:"Не указан" }}</span>
                     </div>
                     
                     <div style="display: flex; align-items: flex-start; margin-bottom: 10px;">
                         <span style="width: 30px; color: #E67E22;">
                             <i class="fas fa-map-marker-alt"></i>
                         </span>
-                        <span>{{ data.address|default:"Не указан" }}</span>
+                        <span>{{ profil.address|default:"Не указан" }}</span>
                     </div>
                 </div>
 
                 <div class="profile-hobby">
                     <h3 style="color: #E67E22; border-bottom: 1px solid #FAD7A0; padding-bottom: 5px;">Хобби</h3>
                     <p style="color: #555; line-height: 1.6;">
-                        {{ data.hobby|default:"Не указано" }}
+                        {{ profil.hobby|default:"Не указано" }}
                     </p>
                 </div>
             </div>
         </div>
-        {% endfor %}
+        
 
         <div class="profile-actions" style="margin-top: 30px; text-align: center;">
             <a href="http://127.0.0.1:8000/accounts/edit/" style="background-color: #E67E22; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; display: inline-block; margin: 0 10px;">

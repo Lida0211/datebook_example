@@ -1,8 +1,10 @@
+from django.contrib.auth.models import User
 from django.db import models
 import datetime 
 
 
 class Music(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=100, verbose_name="Название трека")
     artist = models.CharField(max_length=100, verbose_name="Исполнитель")
     audio_file = models.FileField(upload_to='music/', verbose_name="Аудиофайл")

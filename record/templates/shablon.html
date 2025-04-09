@@ -13,21 +13,17 @@
 <body style = "background-color:rgb(244, 225, 169)">
 
         {% block navbar %}
-        
-        
         <div style="text-align: right; /* или float: right; для родительского элемента */">
-            <a href="http://127.0.0.1:8000/accounts/" 
-                style="display: inline-block; 
-                        padding: 10px 20px; 
-                        background-color: #FAD7A0; 
-                        color: #D35400; 
-                        border: 1px solid #E67E22; 
-                        border-radius: 5px; 
-                        text-decoration: none; 
-                        font-weight: bold;
-                        transition: all 0.3s ease;">
-                Выйти
-            </a>
+            {% if user.is_authenticated %}
+                <p>Привет, {{ user.username }}! <form action="{% url 'logout' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Выйти</button>
+                </form></p>
+            {% else %}
+                <a href="{% url 'login' %}">Войти</a> | <a href="{% url 'signup' %}">Регистрация</a>
+            {% endif %}
+            
+            
         </div>
             
         

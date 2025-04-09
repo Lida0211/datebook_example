@@ -1,9 +1,11 @@
+from django.contrib.auth.models import User
 from django.db import models
 import datetime 
 
 
 
 class Picture(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=20, blank=False, null=False, verbose_name='Название')
     data  = models.DateField(null = True,blank=True, default=datetime.date.today(), verbose_name = "Дата")
     image = models.ImageField(upload_to='pictures/', verbose_name='Картинка',blank=False, null=False)

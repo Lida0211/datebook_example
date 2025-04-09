@@ -1,8 +1,10 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 # Create your models here.
 
 class PersonalData(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     foto = models.ImageField(upload_to='pictures/', verbose_name='Фото',blank=False, null=False)
     surname = models.CharField(blank=True, max_length = 30, null = True, verbose_name = "Фамилия")
     name = models.CharField(blank=True, max_length = 30, null = True, verbose_name = "Имя")

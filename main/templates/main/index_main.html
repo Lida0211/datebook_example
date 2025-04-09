@@ -19,10 +19,7 @@
                 с легкостью и удовольствием.
             </p>
             
-            <a href="{% if user.is_authenticated %}
-                {% url 'profil' %}
-            {% else %}
-                {% url 'login' %}{% endif %}"  class="buttonns">
+            <a href="{% url 'profil' %}"  class="buttonns">
                 Начать
             </a>
         </div>

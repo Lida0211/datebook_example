@@ -3,40 +3,127 @@
 {% load static %}
 
 {% block content %}
-
-<h1 style = "text-align:center;background-color:rgb(238, 149, 32)">Мои картинки</h1>
+<style>
+    .picture-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        padding: 20px;
+        margin-left: 3cm;
+        position: relative;
+        min-height: calc(100vh - 100px);
+    }
     
-<div style="display: flex;
-justify-content: center; /* Горизонтальное центрирование */
-align-items: center;     /* Вертикальное центрирование */
-min-height: 100vh;       /* На всю высоту экрана */
-margin:0 0 0 3cm;
-padding: 20px;">
-    <div class="style-r">
-        {% for picture in pictures %}
-            <div class="style-rr">
-                {{ picture.name }}  <br/>
-                {{ picture.data }}   <br/>
-                {% if picture.image %}
-                    <img src="{{ picture.image.url }}" width="150" height="auto">
-                {% endif %}<br/><br/>
-                {{ picture.description }}   <br/>
-                <a href="{% url 'edit-picture' picture_id=picture.id %}" class="tooltip-btn-r" title="Редактировать картинку"><span>✏️  </span> </a>
-                <a href="{% url 'delete-picture' picture_id=picture.id %}" class="tooltip-btn-r" title="Удалить">🗑️</a> <br/><br/>
+    .picture-card {
+        border: 2px solid rgb(238, 149, 32);
+        border-radius: 10px;
+        padding: 15px;
+        width: 250px;
+        height: 300px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        background-color: rgb(240, 197, 132);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    .add-button-wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        padding-right: 3cm;
+        margin-top: 20px;
+        margin-bottom: 50px;
+    }
+    
+    .add-button-label {
+        margin-bottom: 10px;
+        font-size: 14px;
+        color: #666;
+    }
+    
+    .tooltip-btn-p {
+        position: relative;
+        display: inline-block;
+    }
+    
+    .tooltip-text-p {
+        visibility: hidden;
+        width: 120px;
+        background-color: #555;
+        color: #f8cd77;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+    
+    .tooltip-btn-p:hover .tooltip-text-p {
+        visibility: visible;
+        opacity: 1;
+    }
+    
+
+    .picture-image {
+        margin: 10px 0;
+        max-width: 100%;
+        height: auto;
+        max-height: 150px;
+    }
+    
+    .picture-actions {
+        margin-top: auto;
+        padding-top: 10px;
+    }
+</style>
+
+<h1 style="text-align:center; background-color:rgb(238, 149, 32)">Мои картинки</h1>
+    
+<div class="picture-container">
+    {% for picture in pictures %}
+        <div class="picture-card">
+            <div><strong>{{ picture.name }}</strong></div>
+            <div class="text-muted small">{{ picture.data}}</div>
+            
+            {% if picture.image %}
+                <img src="{{ picture.image.url }}" class="picture-image">
+            {% endif %}
+            
+            <div class="picture-description">
+                {{ picture.description}}
             </div>
             
-        {% endfor %}
+            {% if picture.user == request.user %}
+                <div class="picture-actions">
+                    <a href="{% url 'edit-picture' picture_id=picture.id %}" class="tooltip-btn-r" title="Редактировать картинку">
+                        <span>✏️</span>
+                    </a>
+                    <a href="{% url 'delete-picture' picture_id=picture.id %}" class="tooltip-btn-r" title="Удалить">
+                        🗑️
+                    </a>
+                </div>
+            {% endif %}
+        </div>
+    {% endfor %}
+    
+    <div class="add-button-wrapper">
         
+        <a href="http://127.0.0.1:8000/picture/create/" class="tooltip-btn-p">
+            <img src="{% static 'img/plus.webp' %}" 
+                 alt="Добавить" 
+                 width="25"        
+                 height="auto">
+            <span class="tooltip-text-p">Добавить новую картинку</span>
+        </a>
     </div>
 </div>
-<div style="display: flex; justify-content: right; margin: 0 3cm 0 0;">
-    <a href="http://127.0.0.1:8000/picture/create/" class="tooltip-btn-p">
-        <br/><br/><br/><br/><br/><br/><img src="{% static 'img/plus.webp' %}" 
-        alt="Пример" 
-        width="25"        
-        height="auto" >
-        <span class="tooltip-text-p">Добавить новую картинку</span>
-      </a>
-</div>
 {% endblock %}
-

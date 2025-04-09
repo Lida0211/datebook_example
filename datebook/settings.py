@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'bootstrap5',
-
+    'datebook',
     'record',
     'main',
     'books',
@@ -64,6 +64,7 @@ ROOT_URLCONF = 'datebook.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -136,4 +137,13 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
 APPEND_SLASH = True  # Django автоматически добавит слеш при 404
+import django
+import os
+
+
+
+LOGIN_URL = 'login'  # URL для входа (появится позже)
+LOGIN_REDIRECT_URL = 'profil'  # Куда перенаправлять после входа
+LOGOUT_REDIRECT_URL = 'login'  # Куда перенаправлять после выхода

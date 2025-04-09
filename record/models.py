@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 import datetime
 # Create your models here.
@@ -13,6 +14,7 @@ class Record(models.Model):
         ("сб","суббота"),
         ("вс","воскресенье"),
     )
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     data  = models.DateField(null = False, default=datetime.date.today(), verbose_name = "Дата")                             #дата
     weekday = models.CharField(max_length = 2, null = False, default="пн", verbose_name = "День недели", choices=week_day, db_default=0)             #день недели
       
@@ -26,6 +28,7 @@ class Record(models.Model):
         ordering = ["-data"]
 
 class Day(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     time = models.TimeField(null = False, verbose_name = "Время")                         #время
     activity = models.CharField(max_length = 30, null = False, verbose_name = "Действие")      #действие
     comment = models.TextField(blank=True, null = True, verbose_name = "Комментарий")                      #комментарий
@@ -40,6 +43,7 @@ class Day(models.Model):
         unique_together = [['time', 'record']]
 
 class Menu(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     breakfast = models.CharField(blank=True, max_length = 30, null = True, verbose_name = "Завтрак")      #завтрак
     lunch = models.CharField(blank=True, max_length = 30, null = True, verbose_name = "Обед")          #обед
     dinner = models.CharField(blank=True, max_length = 30, null = True, verbose_name = "Ужин")         #ужин
