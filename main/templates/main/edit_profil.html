@@ -3,11 +3,9 @@
 {% block content %}
 <div class="edit-profile-container" style="background-color: rgb(244, 225, 169); min-height: 100vh; padding: 30px 0;">
     <div class="edit-profile-header" style="text-align: center; margin-bottom: 30px;">
-        <h1 style="color: #E67E22;">Редактирование профиля</h1>
+        <h1 class ="for-h">Редактирование профиля</h1>
     </div>
-
-
-            
+ 
             <div class="form-actions" style="text-align: center;">
                 <form method="post" enctype="multipart/form-data">  <!-- Важно! -->
                     {% csrf_token %}  <!-- Обязательно -->
@@ -18,34 +16,8 @@
                     Отмена
                 </a>
             </div>
-        </form>
-    
+        </form> 
 </div>
 
-<style>
-    .form-control {
-        width: 100%;
-        padding: 8px 12px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        box-sizing: border-box;
-    }
-    
-    .form-control:focus {
-        border-color: #E67E22;
-        outline: none;
-        box-shadow: 0 0 0 2px rgba(230, 126, 34, 0.2);
-    }
-    
-    textarea.form-control {
-        min-height: 100px;
-    }
-    
-    @media (max-width: 768px) {
-        .edit-profile-form {
-            padding: 20px;
-            margin: 0 15px;
-        }
-    }
-</style>
+
 {% endblock %}

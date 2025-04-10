@@ -4,20 +4,17 @@
 {% block content %}
 
    
-<h1 style = "text-align:center;background-color:rgb(238, 149, 32)">Распорядок дня</h1>
+<h1 class ="for-h">Распорядок дня</h1>
     <ul>
             
     <div class="menu-wrapper">    
         <br/><br/>  <br/> 
-          
             {{ record.data }} <br/>
             {{ record.weekday }}   <br/>
-            
             <div style="margin-left: 80px">
             <br/><br/><h3 style="color: brown; text-align: center;"> {{'Распорядок дня : '}} </h3> <br/>    
             {% for day in record.days.all %}
-                 
-                    
+
                     {{ day.time }} {{"--"}}
                     {{ day.activity }} 
                      ( {{ day.comment }} )<br/> 
@@ -31,23 +28,19 @@
                 height="auto" >
                 <span class="tooltip-text">Добавить новую запись</span>
               </a>
-                        
-
             </div>
             
             <div  style="margin-left: 80px">
             <br/><br/><h3 style="color: brown; text-align: center;">{{"Меню:"}} </h3><br/>
                 {% for menu_item in record.menu.all %}
                     
-                        
                         {{"Завтрак : "}}{{ menu_item.breakfast }} <br/>
                         {{"Обед : "}}{{ menu_item.lunch }} <br/>
                         {{"Ужин : "}}{{ menu_item.dinner }} <br/>
                         {{"Перекус : "}}{{ menu_item.snack }} <br/>
                         {{"Комментарий к меню : "}}{{ menu_item.comment_menu }}<br/><br/>
                         <a href="{% url 'edit-menu' record_id=record.id%}" class="tooltip-btn-r" title="Редактировать меню"><span>✏️  </span> </a>  
-                         
-                    
+                            
                 {% endfor %} <br/>
                 <a href="{% url 'create-menu'  %}" class="tooltip-btn">
                     <img src="{% static 'img/plus.webp' %}" 
@@ -63,8 +56,7 @@
                             
                         </div>
             <br/><br/>
-        </div>
-                 
+        </div>      
         <br/><br/>
     
     </ul>

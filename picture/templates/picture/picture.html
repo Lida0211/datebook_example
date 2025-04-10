@@ -3,99 +3,16 @@
 {% load static %}
 
 {% block content %}
-<style>
-    .picture-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-        padding: 20px;
-        margin-left: 3cm;
-        position: relative;
-        min-height: calc(100vh - 100px);
-    }
+<h1 class ="for-h">Мои картинки</h1>
     
-    .picture-card {
-        border: 2px solid rgb(238, 149, 32);
-        border-radius: 10px;
-        padding: 15px;
-        width: 250px;
-        height: 300px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        background-color: rgb(240, 197, 132);
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    
-    .add-button-wrapper {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        padding-right: 3cm;
-        margin-top: 20px;
-        margin-bottom: 50px;
-    }
-    
-    .add-button-label {
-        margin-bottom: 10px;
-        font-size: 14px;
-        color: #666;
-    }
-    
-    .tooltip-btn-p {
-        position: relative;
-        display: inline-block;
-    }
-    
-    .tooltip-text-p {
-        visibility: hidden;
-        width: 120px;
-        background-color: #555;
-        color: #f8cd77;
-        text-align: center;
-        border-radius: 6px;
-        padding: 5px;
-        position: absolute;
-        z-index: 1;
-        bottom: 125%;
-        left: 50%;
-        transform: translateX(-50%);
-        opacity: 0;
-        transition: opacity 0.3s;
-    }
-    
-    .tooltip-btn-p:hover .tooltip-text-p {
-        visibility: visible;
-        opacity: 1;
-    }
-    
-
-    .picture-image {
-        margin: 10px 0;
-        max-width: 100%;
-        height: auto;
-        max-height: 150px;
-    }
-    
-    .picture-actions {
-        margin-top: auto;
-        padding-top: 10px;
-    }
-</style>
-
-<h1 style="text-align:center; background-color:rgb(238, 149, 32)">Мои картинки</h1>
-    
-<div class="picture-container">
+<div class="picture-container1">
     {% for picture in pictures %}
-        <div class="picture-card">
+        <div class="picture-card1">
             <div><strong>{{ picture.name }}</strong></div>
             <div class="text-muted small">{{ picture.data}}</div>
             
             {% if picture.image %}
-                <img src="{{ picture.image.url }}" class="picture-image">
+                <img src="{{ picture.image.url }}" class="picture-image1">
             {% endif %}
             
             <div class="picture-description">
@@ -103,7 +20,7 @@
             </div>
             
             {% if picture.user == request.user %}
-                <div class="picture-actions">
+                <div class="picture-actions1">
                     <a href="{% url 'edit-picture' picture_id=picture.id %}" class="tooltip-btn-r" title="Редактировать картинку">
                         <span>✏️</span>
                     </a>
@@ -115,14 +32,14 @@
         </div>
     {% endfor %}
     
-    <div class="add-button-wrapper">
+    <div class="add-button-wrapper1">
         
-        <a href="http://127.0.0.1:8000/picture/create/" class="tooltip-btn-p">
+        <a href="http://127.0.0.1:8000/picture/create/" class="tooltip-btn-p1">
             <img src="{% static 'img/plus.webp' %}" 
                  alt="Добавить" 
                  width="25"        
                  height="auto">
-            <span class="tooltip-text-p">Добавить новую картинку</span>
+            <span class="tooltip-text-p1">Добавить новую картинку</span>
         </a>
     </div>
 </div>

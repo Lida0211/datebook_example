@@ -2,26 +2,23 @@
 
 {% block content %}
 <div class="container-record">
-    <h2 class="retro-title">Редактирование картинки </h2>
+    <h2 class ="for-h">Редактирование картинки </h2>
 </div>    
 <div class="container-record">
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         
         {{ form.non_field_errors }}
-        
         <div class="form-group">
             {{ form.name.label_tag }}
             {{ form.name }}
             {{ form.name.errors }}
         </div>
-        
         <div class="form-group">
             {{ form.data.label_tag }}
             {{ form.data }}
             {{ form.data.errors }}
         </div>
-        
         <div class="form-group">
             {{ form.image.label_tag }}
             {{ form.image }}
@@ -34,13 +31,11 @@
                 </div>
             {% endif %}
         </div>
-        
         <div class="form-group">
             {{ form.description.label_tag }}
             {{ form.description }}
             {{ form.description.errors }}
         </div>
-        
         <button type="submit" >Сохранить изменения</button>
         <a href="{% url 'pictures' %}" >Отмена</a>
     </form>

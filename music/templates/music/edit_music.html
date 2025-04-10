@@ -2,11 +2,11 @@
 
 {% block content %}
 <div style="max-width: 600px; margin: 2cm auto; padding: 20px;">
-    <h2 class="retro-title">Редактировать трек: {{ music.title }}</h2>
+    <h2 class ="for-h">Редактировать трек: {{ music.title }}</h2>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         
-        {{ form.as_p }}  <!-- Или кастомный рендеринг полей как в create_music.html -->
+        {{ form.as_p }}
         
         <button type="submit">Сохранить изменения</button>
         <a href="{% url 'music' %}">Отмена</a>

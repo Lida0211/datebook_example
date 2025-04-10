@@ -44,7 +44,7 @@
 
   .body-calendar {
     font-family: Arial, sans-serif;
-    background-color: rgb(244, 225, 169); /* Светло-оранжевый фон */
+    background-color: rgb(244, 225, 169);
     color: #333;
     display: flex;
     justify-content: center;
@@ -54,7 +54,7 @@
     
 }
 .calendar {
-    background-color: #ffe0b2; /* Оранжевый фон календаря */
+    background-color: #ffe0b2; 
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -71,10 +71,10 @@
 }
 .calendar-header h2 {
     margin: 0;
-    color: #e65100; /* Темно-оранжевый цвет текста */
+    color: #e65100;
 }
 .calendar-header button {
-    background-color: #ffcc80; /* Светло-оранжевый фон кнопок */
+    background-color: #ffcc80;
     border: none;
     border-radius: 5px;
     padding: 5px 10px;
@@ -82,7 +82,7 @@
     transition: background-color 0.3s ease;
 }
 .calendar-header button:hover {
-    background-color: #ffb74d; /* Оранжевый фон при наведении */
+    background-color: #ffb74d;
 }
 .calendar-grid {
     display: grid;
@@ -91,20 +91,20 @@
 }
 .calendar-day {
     padding: 10px;
-    background-color: #ffcc80; /* Светло-оранжевый фон дней */
+    background-color: #ffcc80; 
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 .calendar-day:hover {
-    background-color: #ffb74d; /* Оранжевый фон при наведении */
+    background-color: #ffb74d;
 }
 .calendar-day.empty {
     background-color: transparent;
     cursor: default;
 }
 .calendar-day.today {
-    background-color: #fb8c00; /* Ярко-оранжевый фон для текущего дня */
+    background-color: #fb8c00;
     color: white;
 }
 .btn {
@@ -160,7 +160,7 @@
 
 .container-record {
   display: flex;
-  justify-content: center; /* выравнивание по горизонтали */
+  justify-content: center;
   
 }
 .retro-title {
@@ -174,7 +174,7 @@
 }
 .body-profil {
   font-family: Arial, sans-serif;
-  background-color: #fff3e0; /* Светло-оранжевый фон */
+  background-color: #fff3e0; 
   color: #333;
   display: flex;
   flex-direction: column;
@@ -186,10 +186,10 @@
 .header-profil {
   font-size: 3em;
   font-weight: bold;
-  background: linear-gradient(45deg, #e65100, #ff9800); /* Градиент для текста */
+  background: linear-gradient(45deg, #e65100, #ff9800); 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Тень для текста */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   margin-bottom: 40px;
 }
 .navigation-profil {
@@ -201,7 +201,7 @@
 }
 .navigation-profil button {
   padding: 20px;
-  background-color: #ffcc80; /* Светло-оранжевый фон кнопок */
+  background-color: #ffcc80;
   border: none;
   border-radius: 15px;
   color: #333;
@@ -211,11 +211,11 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 .navigation-profil button:hover {
-  background-color: #ffb74d; /* Оранжевый фон при наведении */
-  transform: scale(1.05); /* Увеличение кнопки при наведении */
+  background-color: #ffb74d;
+  transform: scale(1.05); 
 }
 .navigation-profil button:active {
-  transform: scale(0.95); /* Уменьшение кнопки при нажатии */
+  transform: scale(0.95);
 }
 
 .tooltip-btn {
@@ -318,9 +318,12 @@
   margin: 2rem auto;
 }
 .card {
-  margin-top: 1rem;
-  border: 1px solid #ffebee;
+  width: 6cm;         
+  margin: 1rem auto;  
+  padding: 1rem;     
+  border: 1px solid #f69918;
   border-radius: 8px;
+  text-align: center;
 }
 .body-main {
   font-family: Arial, sans-serif;
@@ -336,14 +339,14 @@
 .header-main {
   font-size: 3.5em;
   font-weight: bold;
-  background: linear-gradient(45deg, #e65100, #ff9800); /* Градиент для текста */
+  background: linear-gradient(45deg, #e65100, #ff9800); 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Тень для текста */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   margin-bottom: 20px;
   }
 .welcome-container {
-  background-color: #fac576; /* Оранжевый фон контейнера */
+  background-color: #fac576;
   border-radius: 15px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   padding: 40px;
@@ -352,14 +355,14 @@
 }
 .welcome-container p {
   margin: 0;
-  color: #bf360c; /* Оранжевый цвет текста */
+  color: #bf360c; 
   font-size: 1.1em;
   line-height: 1.6;
   margin-bottom: 30px;
 }
 .welcome-container button {
   padding: 12px 30px;
-  background-color: #ffcc80; /* Светло-оранжевый фон кнопки */
+  background-color: #ffcc80; 
   border: none;
   border-radius: 25px;
   color: #333;
@@ -368,11 +371,11 @@
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 .welcome-container button:hover {
-  background-color: #ffb74d; /* Оранжевый фон при наведении */
-  transform: scale(1.05); /* Увеличение кнопки при наведении */
+  background-color: #ffb74d; 
+  transform: scale(1.05); 
 }
 .welcome-container button:active {
-  transform: scale(0.95); /* Уменьшение кнопки при нажатии */
+  transform: scale(0.95); 
 }
 
 @media (max-width: 768px) {
@@ -381,5 +384,156 @@
   }
   .profile-photo {
       margin: 0 auto 20px;
+  }
+}
+
+.for-h {
+  text-align:center;
+  background-color:rgb(238, 149, 32)
+}
+
+.s-b1 {
+  display: block; 
+  margin-bottom: 5px; 
+  font-weight: bold;
+}
+
+.s-b2 {
+  max-width: 600px; 
+  margin: 20px auto; 
+  padding: 20px; 
+  border: 2px solid orange; 
+  border-radius: 5px;
+}
+.s-b3 {
+  background-color: orange; 
+  color: white; 
+  padding: 10px 20px; 
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer;
+}
+.form-control {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.form-control:focus {
+  border-color: #E67E22;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(230, 126, 34, 0.2);
+}
+
+textarea.form-control {
+  min-height: 100px;
+}
+
+@media (max-width: 768px) {
+  .edit-profile-form {
+      padding: 20px;
+      margin: 0 15px;
+  }
+}
+.picture-container1 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  margin-left: 3cm;
+  position: relative;
+  min-height: calc(100vh - 100px);
+}
+
+.picture-card1 {
+  border: 2px solid rgb(238, 149, 32);
+  border-radius: 10px;
+  padding: 15px;
+  width: 250px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: rgb(240, 197, 132);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.add-button-wrapper1 {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-right: 3cm;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+.add-button-label1 {
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+.tooltip-btn-p1 {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip-text-p1 {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #f8cd77;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip-btn-p1:hover .tooltip-text-p1 {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+.picture-image1 {
+  margin: 10px 0;
+  max-width: 100%;
+  height: auto;
+  max-height: 150px;
+}
+
+.picture-actions1 {
+  margin-top: auto;
+  padding-top: 10px;
+}
+.exit-button {
+  padding: 0.5rem 1.5rem;      
+  background-color: #FFF3E0;   
+  border: 2px solid #FFA726; 
+  border-radius: 6px;       
+  color: #E65100;        
+  font-weight: 600;           
+  font-size: 1rem;            
+  cursor: pointer;           
+  transition: all 0.3s;     
+
+  &:hover {
+    background-color: #FFE0B2;  
+    border-color: #FB8C00;  
+  }
+
+  &:active {
+    transform: scale(0.98); 
   }
 }

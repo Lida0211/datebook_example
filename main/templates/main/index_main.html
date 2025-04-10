@@ -1,14 +1,7 @@
+{% extends "shablon_record.html" %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Добро пожаловать в Ежедневник</title>
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    
-</head>
+{% block content %}
 <body style="background-color: rgb(244, 225, 169);">
     <div class="body-main">
         <div class="header-main" >ЕЖЕДНЕВНИК</div>
@@ -24,5 +17,4 @@
             </a>
         </div>
     </div>
-</body>
-</html>
+{% endblock %}
