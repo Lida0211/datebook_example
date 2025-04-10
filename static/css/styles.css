@@ -537,3 +537,88 @@ textarea.form-control {
     transform: scale(0.98); 
   }
 }
+
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  background-color:rgb(244, 225, 169);
+}
+
+
+.auth-box {
+  width: 100%;
+  max-width: 400px; 
+  padding: 30px;
+  border: 2px solid #FFA726; 
+  border-radius: 10px; 
+  background-color: rgb(244, 225, 169);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.auth-box h2 {
+  margin-top: 0;
+  color: #E65100; 
+  text-align: center;
+}
+
+.auth-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.auth-button {
+  padding: 10px;
+  background-color: #FFA726; 
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.auth-button:hover {
+  background-color: #FB8C00; 
+}
+
+.auth-link {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.auth-link a {
+  color: #d28006; 
+  text-decoration: none;
+}
+
+.auth-link a:hover {
+  text-decoration: underline;
+}
+.form-field {
+  margin-bottom: 15px;
+}
+
+.help-text {
+  font-size: 0.8rem;  
+  color: #666;       
+  margin-top: 5px; 
+  line-height: 1.3;  
+}
+
+.error-text {
+  font-size: 0.8rem;
+  color: #d32f2f;   
+  margin-top: 5px;
+}
+
+.auth-box input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}

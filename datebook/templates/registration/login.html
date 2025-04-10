@@ -1,11 +1,15 @@
 {% extends 'shablon_record.html' %}
 
 {% block content %}
-<h2>Вход</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Войти</button>
-</form>
-<p>Нет аккаунта? <a href="{% url 'signup' %}">Зарегистрируйтесь</a></p>
+<div class="auth-container">
+  <div class="auth-box">
+    <h2>Вход</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button class="auth-button" type="submit">Войти</button>
+    </form>
+    <p class="auth-link">Нет аккаунта? <a href="{% url 'signup' %}">Зарегистрируйтесь</a></p>
+  </div>
+</div>
 {% endblock %}

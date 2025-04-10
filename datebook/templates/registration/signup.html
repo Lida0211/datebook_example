@@ -1,10 +1,27 @@
 {% extends 'shablon_record.html' %}
 
 {% block content %}
-<h2>Регистрация</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Зарегистрироваться</button>
-</form>
+<div class="auth-container">
+  <div class="auth-box">
+    <h2>Регистрация</h2>
+    <form method="post">
+      {% csrf_token %}
+      
+      {% for field in form %}
+        <div class="form-field">
+          {{ field.label_tag }}
+          {{ field }}
+          {% if field.help_text %}  <!-- Если есть подсказка -->
+            <div class="help-text">{{ field.help_text }}</div>
+          {% endif %}
+          {% if field.errors %}  <!-- Если есть ошибки валидации -->
+            <div class="error-text">{{ field.errors }}</div>
+          {% endif %}
+        </div>
+      {% endfor %}
+      
+      <button class="auth-button" type="submit">Зарегистрироваться</button>
+    </form>
+  </div>
+</div>
 {% endblock %}
