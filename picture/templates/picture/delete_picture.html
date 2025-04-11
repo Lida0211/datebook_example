@@ -1,36 +1,39 @@
 {% extends 'shablon_record.html' %}
 
 {% block content %}
-
-    <div class="container-record">
-        <h2 class ="for-h">Подтверждение удаления</h2>
-    </div>
-    <div class="confirmation-container container-record">    
-        <div class="card">
-            {% if picture.image %}
-                <img src="{{ picture.image.url }}" 
-                    class="card-img-top" 
-                    alt="{{ picture.name }}"
-                    style="max-height: 300px; object-fit: contain;">
-            {% endif %}
-            
-            <div class="card-body">
-                <h5 class="card-title">{{ picture.name }}</h5>
-                <p class="card-text">{{ picture.description|default:"Нет описания" }}</p>
-                <p class="text-muted">Дата: {{ picture.data|date:"d.m.Y" }}</p>
+<div class="center-block">
+    <div>
+        <div class="container-record">
+            <h2 class ="for-h">Подтверждение удаления</h2>
+        </div>
+        <div class="confirmation-container container-record">    
+            <div class="card">
+                {% if picture.image %}
+                    <img src="{{ picture.image.url }}" 
+                        class="card-img-top" 
+                        alt="{{ picture.name }}"
+                        style="max-height: 300px; object-fit: contain;">
+                {% endif %}
                 
-                <form method="post">
-                    {% csrf_token %}
-                    <button type="submit" >
-                        <i class="fas fa-trash-alt"></i> Удалить навсегда
-                    </button>
-                    <a href="{% url 'pictures' %}" >
-                        <i class="fas fa-times"></i> Отмена
-                    </a>
-                </form>
+                <div class="card-body">
+                    <h5 class="card-title">{{ picture.name }}</h5>
+                    <p class="card-text">{{ picture.description|default:"Нет описания" }}</p>
+                    <p class="text-muted">Дата: {{ picture.data|date:"d.m.Y" }}</p>
+                    
+                    <form method="post">
+                        {% csrf_token %}
+                        <button class="exit-button1" type="submit" >
+                             Удалить навсегда
+                        </button>
+                        <a href="{% url 'pictures' %}" class="cancel-button" >
+                             Отмена
+                        </a>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
+</div>
 
 
 {% endblock %}

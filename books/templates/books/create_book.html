@@ -1,28 +1,32 @@
 {% extends 'shablon_record.html' %}
 
 {% block content %}
-<div class="s-b2">
-    <h2 class ="for-h">Добавить новую книгу</h2>
-    <form method="post">
-        {% csrf_token %}
-        <div style="margin-bottom: 15px;">
-            <label class="s-b1">{{ form.name.label }}</label>
-            {{ form.name }}
+<div class="center-block">
+    <div>
+        <div class="s-b2">
+            <h2 class ="for-h">Добавить новую книгу</h2>
+            <form method="post">
+                {% csrf_token %}
+                <div style="margin-bottom: 15px;">
+                    <label class="s-b1">{{ form.name.label }}</label>
+                    {{ form.name }}
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label class="s-b1">{{ form.author.label }}</label>
+                    {{ form.author }}
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label class="s-b1">{{ form.description.label }}</label>
+                    {{ form.description }}
+                </div>
+                <button type="submit" class="exit-button1">
+                    Сохранить книгу
+                </button>
+                <div class="container-record">
+                    <a href="{% url 'books' %}" class="exit-button">Отмена</a>
+                </div>
+            </form>
         </div>
-        <div style="margin-bottom: 15px;">
-            <label class="s-b1">{{ form.author.label }}</label>
-            {{ form.author }}
-        </div>
-        <div style="margin-bottom: 15px;">
-            <label class="s-b1">{{ form.description.label }}</label>
-            {{ form.description }}
-        </div>
-        <button type="submit" class="s-b3">
-            Сохранить книгу
-        </button>
-        <div class="container-record">
-            <a href="{% url 'books' %}" >Отмена</a>
-        </div>
-    </form>
+    </div>
 </div>
 {% endblock %}

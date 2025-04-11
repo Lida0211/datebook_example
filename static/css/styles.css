@@ -622,3 +622,72 @@ textarea.form-control {
   border-radius: 4px;
   box-sizing: border-box;
 }
+.center-block {
+  display: flex;
+  justify-content: center; /* Горизонтальное центрирование */
+  align-items: center;     /* Вертикальное центрирование */
+  min-height: 100vh;       /* На всю высоту экрана */
+  margin: 0;              /* Сброс стандартных отступов */
+}
+.exit-button1 {
+  display: block;          /* Делаем блочным элементом */
+  margin: 0 auto;         /* Автоматические отступы по бокам */
+  padding: 10px 20px;
+  background-color: #FFA726;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.cancel-button {
+  display: block;
+  margin: 15px auto 0;
+  padding: 10px 20px;
+  width: max-content;
+  background-color: #f0f0f0;
+  color:  #E65100;
+  border: 3px solid #FFA726;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.cancel-button:hover {
+  background-color: #e0e0e0;
+  border-color: #FFA726;
+}
+.greeting {
+  font-family: 'Segoe UI', Roboto, -apple-system, sans-serif; /* Современные шрифты */
+  font-size: 2rem;          /* Крупный размер */
+  font-weight: 600;        /* Полужирное начертание */
+  color: #ff5b03;          /* Темно-синий цвет текста */
+  text-align: center;      /* Центрирование */
+  margin: 1.5rem 0;       /* Отступы сверху/снизу */
+  padding: 0.5rem 1rem;
+  animation: fadeIn 0.5s ease-in-out; /* Плавное появление */
+}
+
+/* Градиентный вариант (опционально) */
+.greeting.gradient {
+  background: linear-gradient(90deg, #ff7e5f, #feb47b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Анимация появления */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.user-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: rgb(244, 225, 169); /* Светлый фон панели */
+  border-radius: 5px;
+  margin-bottom: 20px;
+}

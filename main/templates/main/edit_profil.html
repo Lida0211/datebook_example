@@ -7,8 +7,8 @@
     </div>
  
             <div class="form-actions" style="text-align: center;">
-                <form method="post" enctype="multipart/form-data">  <!-- Важно! -->
-                    {% csrf_token %}  <!-- Обязательно -->
+                <form method="post" enctype="multipart/form-data"> 
+                    {% csrf_token %}  
                     {{ form.as_p }}
                     <button type="submit">Сохранить</button>
                 </form>

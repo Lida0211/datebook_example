@@ -2,18 +2,21 @@
 
 
 {% block content %}
-
-<div class="container-record">
-    <h2 class ="for-h">Редактирование записи от {{ record.data }}</h2>
-</div>
-<div class="container-record">
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Сохранить</button>
-    </form>
-</div>
-<div class="container-record">
-    <a href="{% url 'record' record_id=record.id %}">Назад к записи</a>
+<div class="center-block">
+    <div>
+        <div class="container-record">
+            <h2 class ="for-h">Редактирование записи от {{ record.data }}</h2>
+        </div>
+        <div class="container-record">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="exit-button1" type="submit">Сохранить</button>
+            </form>
+        </div>
+        <div class="container-record">
+            <a href="{% url 'record' record_id=record.id %}" class="exit-button">Назад к записи</a>
+        </div>
+    </div>
 </div>
 {% endblock %}

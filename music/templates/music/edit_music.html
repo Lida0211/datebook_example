@@ -1,15 +1,20 @@
 {% extends 'shablon_record.html' %}
 
 {% block content %}
-<div style="max-width: 600px; margin: 2cm auto; padding: 20px;">
-    <h2 class ="for-h">Редактировать трек: {{ music.title }}</h2>
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
+<div class="center-block">
+    <div>
         
-        {{ form.as_p }}
-        
-        <button type="submit">Сохранить изменения</button>
-        <a href="{% url 'music' %}">Отмена</a>
-    </form>
+        <h2 class ="for-h">Редактировать трек: {{ music.title }}</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            {{ form.as_p }}
+            
+            <button class="exit-button1" type="submit">Сохранить изменения</button>
+            
+        </form>
+        <a href="{% url 'music' %}" class="cancel-button" >Отмена</a>
+    </div>
 </div>
+
 {% endblock %}

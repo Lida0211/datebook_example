@@ -11,17 +11,19 @@
         <div class="form-field">
           {{ field.label_tag }}
           {{ field }}
-          {% if field.help_text %}  <!-- Если есть подсказка -->
+          {% if field.help_text %} 
             <div class="help-text">{{ field.help_text }}</div>
           {% endif %}
-          {% if field.errors %}  <!-- Если есть ошибки валидации -->
+          {% if field.errors %} 
             <div class="error-text">{{ field.errors }}</div>
           {% endif %}
         </div>
       {% endfor %}
       
       <button class="auth-button" type="submit">Зарегистрироваться</button>
+     
     </form>
+    <p class="auth-link">Есть аккаунт? <a href="{% url 'login' %}">Войти</a></p>
   </div>
 </div>
 {% endblock %}

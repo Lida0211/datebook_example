@@ -1,25 +1,30 @@
 {% extends 'shablon_record.html' %}
 
 {% block content %}
-    <div class="container-record">
-        <h2 class ="for-h">Подтверждение удаления</h2>
-    </div>
-    <div class="container-record">
-        <p >Вы уверены, что хотите удалить запись от {{day.record}}  в {{ day.time }}?</p></b></b>
- 
-    </div>
-    <div class="container-record">
-        
-        <p >Действие: {{ day.activity }}</p>
-    </div>
-    <div class="container-record">
-        <form method="post">
-            {% csrf_token %}
-            <button type="submit" >Удалить</button>
+<div class="center-block">
+    <div>
+        <div class="container-record">
+            <h2 class ="for-h">Подтверждение удаления</h2>
+        </div>
+        <div class="container-record">
+            <p >Вы уверены, что хотите удалить запись от {{day.record}}  в {{ day.time }}?</p></b></b>
+    
+        </div>
+        <div class="container-record">
             
-        </form>
+            <p >Действие: {{ day.activity }}</p>
+        </div>
+        <div class="container-record">
+            <form method="post">
+                {% csrf_token %}
+                <button class="exit-button1" type="submit" >Удалить</button>
+                
+            </form>
+        </div>
+        <div class="container-record">
+            <a href="{% url 'record' record_id=record_id %}" class="exit-button">Отмена</a>
+        </div>
     </div>
-    <div class="container-record">
-        <a href="{% url 'record' record_id=record_id %}">Отмена</a>
-    </div>
+</div>
+
 {% endblock %}

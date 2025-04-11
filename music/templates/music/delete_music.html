@@ -1,20 +1,24 @@
 {% extends 'shablon_record.html' %}
 
 {% block content %}
-<div style="max-width: 600px; margin: 2cm auto; padding: 20px; text-align: center;">
-    <h2 class ="for-h">Подтверждение удаления</h2>
-    <p>Вы уверены, что хотите удалить трек:</p>
-    <p><strong>{{ music.title }} - {{ music.artist }}</strong></p>
-    
-    <audio controls style="width: 100%; margin: 20px 0;">
-        <source src="{{ music.audio_file.url }}" type="audio/mpeg">
-    </audio>
-    <form method="post">
-        {% csrf_token %}
-        <button type="submit" style="background: #f49d1c; color: white; padding: 10px 20px; border: none; border-radius: 4px;">
-            Да, удалить
-        </button>
-        <a href="{% url 'music' %}" style="padding: 10px 20px; margin-left: 10px;">Отмена</a>
-    </form>
+<div class="center-block">
+    <div>
+        <div style="max-width: 600px; margin: 2cm auto; padding: 20px; text-align: center;">
+            <h2 class ="for-h">Подтверждение удаления</h2>
+            <p>Вы уверены, что хотите удалить трек:</p>
+            <p><strong>{{ music.title }} - {{ music.artist }}</strong></p>
+            
+            <audio controls style="width: 100%; margin: 20px 0;">
+                <source src="{{ music.audio_file.url }}" type="audio/mpeg">
+            </audio>
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit" class="exit-button1">
+                    Да, удалить
+                </button>
+                <br/><a href="{% url 'music' %}" class="exit-button">Отмена</a>
+            </form>
+        </div>
+    </div>
 </div>
 {% endblock %}

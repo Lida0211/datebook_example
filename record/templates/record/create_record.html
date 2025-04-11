@@ -1,18 +1,22 @@
 {% extends "shablon_record.html"%}
 
 {% block content %}
-<div class="container-record">
-    <h class ="for-h"> ДОБАВЛЕНИЕ НОВОЙ ДАТЫ В ЕЖЕДНЕВНИК </h></b>
-</div>
-<div class="container-record">
-    <form action="/record/create/" method="post">
-        {% csrf_token%}
-        {{form}}
+<div class="center-block">
+    <div>
+        <div class="container-record">
+            <h class ="for-h"> ДОБАВЛЕНИЕ НОВОЙ ДАТЫ В ЕЖЕДНЕВНИК </h>
+        </div><br/><br/>
+        <div class="container-record">
+            <form action="/record/create/" method="post">
+                {% csrf_token%}
+                {{form}}
 
-        <input type="submit" value="Создать">
-    </form>
-</div>
-<div class="container-record">
-    <a href="{% url 'records' %}" >Отмена</a>
+                <br/><br/><input class="exit-button1" type="submit" value="Создать">
+            </form>
+        </div>
+        <div class="container-record">
+            <a href="{% url 'records' %}"  class="exit-button" >Отмена</a>
+        </div>
+    </div>
 </div>
 {% endblock %}

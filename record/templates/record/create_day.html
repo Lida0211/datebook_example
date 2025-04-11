@@ -2,18 +2,22 @@
 
 
 {% block content %}
-<div class="container-record">
-    <h class ="for-h"> ДОБАВЛЕНИЕ НОВОЙ ЗАПИСИ </h></b>
-</div>
-<div class="container-record">
-    <form action="/record/createday/{{day.id}}" method="post">
-        {% csrf_token%}
-        {{form}}
+<div class="center-block">
+    <div>
+        <div class="container-record">
+            <h class ="for-h"> ДОБАВЛЕНИЕ НОВОЙ ЗАПИСИ </h></b>
+        </div>
+        <div class="container-record"><br/><br/>
+            <form action="/record/createday/{{day.id}}" method="post">
+                {% csrf_token%}
+                <br/>{{form}}
 
-        <input type="submit" value="Создать">
-    </form>
-</div>
-<div class="container-record">
-    <a href="{% url 'records' %}" >Отмена</a>
+                <input class="exit-button1" type="submit" value="Создать">
+            </form>
+        </div>
+        <div class="container-record">
+            <a href="{% url 'records' %}" class="exit-button">Отмена</a>
+        </div>
+    </div>
 </div>
 {% endblock %}

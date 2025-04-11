@@ -15,13 +15,23 @@
         {% block navbar %}
         <div style="text-align: right; /* или float: right; для родительского элемента */">
             {% if user.is_authenticated %}
-                <p>Привет, {{ user.username }}! <form action="{% url 'logout' %}" method="post">
+            <div class="user-panel">
+                <p class="greeting">Привет, {{ user.username }}!</p>
+                <form action="{% url 'logout' %}" method="post" class="logout-form">
                     {% csrf_token %}
                     <button class="exit-button" type="submit">Выйти</button>
-                </form></p>
+                </form>
+            </div>
             {% else %}
-                <a href="{% url 'login' %}">Войти</a> | <a href="{% url 'signup' %}">Регистрация</a>
-            {% endif %} 
+            <div class="user-panel">
+                <div class="greeting"></div>
+                <div class="auth-links">
+                    <a href="{% url 'login' %}" class="exit-button">Войти</a>
+                    <a href="{% url 'signup' %}" class="exit-button">Регистрация</a>
+                </div>
+            </div>
+            {% endif %}
+             
         </div>
 
         <div class="menu-wrapper">
