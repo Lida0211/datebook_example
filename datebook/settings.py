@@ -145,5 +145,5 @@ import os
 
 
 LOGIN_URL = 'login'  # URL для входа (появится позже)
-LOGIN_REDIRECT_URL = 'profil'  # Куда перенаправлять после входа
+LOGIN_REDIRECT_URL = 'index_main'  # Куда перенаправлять после входа
 LOGOUT_REDIRECT_URL = 'login'  # Куда перенаправлять после выхода

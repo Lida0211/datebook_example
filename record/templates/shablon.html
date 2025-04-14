@@ -16,7 +16,7 @@
         <div style="text-align: right; /* или float: right; для родительского элемента */">
             {% if user.is_authenticated %}
             <div class="user-panel">
-                <p class="greeting">Привет, {{ user.username }}!</p>
+                <p class="for-h">Привет, {{ user.username }}!</p>
                 <form action="{% url 'logout' %}" method="post" class="logout-form">
                     {% csrf_token %}
                     <button class="exit-button" type="submit">Выйти</button>

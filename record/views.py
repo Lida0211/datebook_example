@@ -110,3 +110,15 @@ def edit_menu(request, record_id):
         "form": form,
         "record": record,
     })
+
+@login_required
+def search_record(request):
+    if 'search_date' in request.GET:
+        search_date = request.GET['search_date']
+        try:
+            record = Record.objects.get(user=request.user, data=search_date)
+            return redirect('record', record_id=record.pk)
+        except Record.DoesNotExist:
+            messages.error(request, f"Запись на дату {search_date} не найдена")
+            return redirect('records')
+    return redirect('records')

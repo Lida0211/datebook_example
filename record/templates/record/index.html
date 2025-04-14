@@ -3,8 +3,23 @@
 {% block content %}
 
     <h1 class ="for-h">Список записей</h1>
-    <div class="container-record">
-        <a href="{% url 'create-record' %}" class="btn"><span> Cоздать новую дату </span> </a>
+    <div style="display: flex; justify-content: space-between; align-items: center; margin: 20px 0; position: relative;">
+
+        <a href="{% url 'create-record' %}" class="btn" style="position: absolute; left: 50%; transform: translateX(-50%);">
+            <span>Создать новую дату</span>
+        </a>
+
+        <div style="margin-left: auto; display: flex; align-items: center; gap: 10px;">
+            <span>Поиск по дате:</span>
+            <form method="get" action="{% url 'search_record' %}" style="display: flex; gap: 10px;">
+                <input type="date" name="search_date" required style="padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                <button type="submit" class="exit-button1">Найти</button>
+            </form>
+        </div>
+        
+    </div><br/><br/>
+    <div style = "text-align: center; background-color:rgb(238, 149, 32)">
+        <h7 >****</h7>
     </div>
     <ul>
     
@@ -13,12 +28,14 @@
         <br/><br/>  
         <a href="{% url 'record' record_id=record.id %}" class="btn"><span> Перейти к записи </span> </a><br/> <br/> <br/> 
                    
-            {{ record.data }} <br/>
-            {{ record.weekday }}   <br/>
+            <div style="margin-top: 20px;">  <!-- Пустая строка сверху -->
+                <div style="font-weight: bold; color: #d55e03; font-size: 2em;">{{ record.data }}</div>
+                <div style="font-weight: bold; color: #d55e03; font-size: 2em;">{{ record.get_weekday_display }}</div>
+            </div>
                        
 
             <div style="margin-left: 80px">
-            <br/><br/><h3 style="color: brown; text-align: center;"> {{'Распорядок дня : '}} </h3> <br/>    
+            <br/><h3 style="color: brown; text-align: center;"> {{'Распорядок дня : '}} </h3> <br/>    
             {% for day in record.days.all %} 
                     
                     {{ day.time }} {{"--"}}
@@ -29,7 +46,7 @@
             </div>
             
             <div  style="margin-left: 80px">
-            <br/><br/><h3 style="color: brown; text-align: center;">{{"Меню:"}} </h3><br/>
+            <br/><h3 style="color: brown; text-align: center;">{{"Меню:"}} </h3><br/>
                 {% for menu_item in record.menu.all %}   
                         
                         {{"Завтрак : "}}{{ menu_item.breakfast }} <br/>
@@ -50,6 +67,7 @@
     
     </ul>
 {% endblock %}
+
 
 
 

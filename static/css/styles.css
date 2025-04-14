@@ -12,7 +12,7 @@
     color: #f44d0b;
     display:block;
     width:110px;
-    font-family: Open Sans, Sans-serif;
+    font-family: 'Caveat', 'Dancing Script', cursive, sans-serif;
     border-radius: 5px;
      font-size: 16px;
     letter-spacing: 4px;
@@ -389,7 +389,12 @@
 
 .for-h {
   text-align:center;
-  background-color:rgb(238, 149, 32)
+  background-color:rgb(238, 149, 32);
+  font-family:'Lucida Handwriting', 'Comic Sans MS', cursive;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+  line-height: 1.4;
 }
 
 .s-b1 {
@@ -624,14 +629,14 @@ textarea.form-control {
 }
 .center-block {
   display: flex;
-  justify-content: center; /* Горизонтальное центрирование */
-  align-items: center;     /* Вертикальное центрирование */
-  min-height: 100vh;       /* На всю высоту экрана */
-  margin: 0;              /* Сброс стандартных отступов */
+  justify-content: center; 
+  align-items: center;     
+  min-height: 100vh;      
+  margin: 0;              
 }
 .exit-button1 {
-  display: block;          /* Делаем блочным элементом */
-  margin: 0 auto;         /* Автоматические отступы по бокам */
+  display: block;        
+  margin: 0 auto;        
   padding: 10px 20px;
   background-color: #FFA726;
   color: white;
@@ -659,17 +664,17 @@ textarea.form-control {
   border-color: #FFA726;
 }
 .greeting {
-  font-family: 'Segoe UI', Roboto, -apple-system, sans-serif; /* Современные шрифты */
-  font-size: 2rem;          /* Крупный размер */
-  font-weight: 600;        /* Полужирное начертание */
-  color: #ff5b03;          /* Темно-синий цвет текста */
-  text-align: center;      /* Центрирование */
-  margin: 1.5rem 0;       /* Отступы сверху/снизу */
+  font-family: 'Segoe UI', Roboto, -apple-system, sans-serif;
+  font-size: 2rem;
+  font-weight: 600;       
+  color: #ff5b03;      
+  text-align: center;     
+  margin: 0 0;      
   padding: 0.5rem 1rem;
-  animation: fadeIn 0.5s ease-in-out; /* Плавное появление */
+  animation: fadeIn 0.5s ease-in-out; 
 }
 
-/* Градиентный вариант (опционально) */
+
 .greeting.gradient {
   background: linear-gradient(90deg, #ff7e5f, #feb47b);
   -webkit-background-clip: text;
@@ -677,7 +682,7 @@ textarea.form-control {
   color: transparent;
 }
 
-/* Анимация появления */
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-10px); }
   to { opacity: 1; transform: translateY(0); }
@@ -686,8 +691,8 @@ textarea.form-control {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  background-color: rgb(244, 225, 169); /* Светлый фон панели */
+  padding: 0px 0px;
+  background-color: rgb(244, 225, 169); 
   border-radius: 5px;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }

@@ -5,16 +5,34 @@
 <body style="background-color: rgb(244, 225, 169);">
     <div class="body-main">
         <div class="header-main" >ЕЖЕДНЕВНИК</div>
-        <div class="welcome-container">
-            <p>
-                Ежедневник готов помочь Вам организовать день. 
-                Добавляйте задачи, отслеживайте прогресс и достигайте своих целей 
-                с легкостью и удовольствием.
-            </p>
-            
-            <a href="{% url 'profil' %}"  class="buttonns">
-                Начать
-            </a>
-        </div>
+
+            {% if user.is_authenticated %}
+            <div class="welcome-container">
+                <p>
+                    Здравствуйте, {{ user.username }}! </br>
+                    Ежедневник готов помочь Вам организовать день. </br>
+                    Добавляйте задачи, отслеживайте прогресс и достигайте своих целей 
+                    с легкостью и удовольствием.
+                </p>
+                
+                <a href="{% url 'profil' %}"  class="buttonns">
+                    Начать
+                </a>
+            </div>
+            {% else %}
+            <div class="welcome-container">
+                <p>
+                
+                    Ежедневник готов помочь Вам организовать день. </br>
+                    Добавляйте задачи, отслеживайте прогресс и достигайте своих целей 
+                    с легкостью и удовольствием.
+                </p>
+                
+                <a href="{% url 'profil' %}"  class="buttonns">
+                    Начать
+                </a>
+            </div>
+            {% endif %}
+        
     </div>
 {% endblock %}

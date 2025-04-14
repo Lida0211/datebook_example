@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from record.views import index, index_id, create_record, edit_record, delete_day, create_day, delete_record, create_menu, edit_menu
+from record.views import index, index_id, create_record, edit_record, delete_day, create_day, delete_record, create_menu, edit_menu, search_record
 
 
 urlpatterns = [
@@ -13,4 +13,5 @@ urlpatterns = [
     path('deleterecord/<int:record_id>/',delete_record, name = 'delete-record'),
     path('createmenu/',create_menu, name = 'create-menu'),
     path('editmenu/<int:record_id>/',edit_menu, name = 'edit-menu'),
+    path('search/', search_record, name='search_record'),
 ]
